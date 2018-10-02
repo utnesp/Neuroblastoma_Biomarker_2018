@@ -47,13 +47,7 @@ setEPS() # to be able to save as eps
 # set annotation database
 mart = useMart("ENSEMBL_MART_ENSEMBL", dataset='hsapiens_gene_ensembl')
 
-################################################################################################
-################################################################################################
-################################################################################################
-
-
-# create and download accessory files (e.g. raw counts) to this folder
-
+# set working directory
 folder = "~/Desktop/test" # change the name of the folder to your choosing
 dir.create(folder,recursive = T) # create dir if needed
 setwd(folder)  # set working directory 
@@ -75,7 +69,7 @@ y$samples <- y.norm$samples
 X <- cpm(y)
 row.names(X) <- y$genes$genes
 
-### check if RNA-seq validates with  with qPCR 
+### check if RNA-seq validates with qPCR 
 validation <- fread("https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/RTqPCR_validation.signal.txt")
 validation.sd <- fread("https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/RTqPCR_validation.signal.sdev.txt")
 counts <- X
@@ -118,7 +112,7 @@ X <- X+1 # add priour count of 1 to avoid log2 errors
 X <- apply(X, c(1,2), function(X) as.integer(round(X, 0)))
 X <- t(X) # transpose matrix (required by mixOmics)
 
-# use gene names instead of gene ids. Convinient when visualizing e.g. heatmaps
+# use gene names as row.names instead of gene ids (for visualization purposes)
 biotypes <- ensg2ext_name_biotype(colnames(X))
 dups <- biotypes[duplicated(biotypes$external_gene_name), ] # genes that have duplicated names / corresponding to more than one gene id 
 dups$external_gene_name <- paste(dups$external_gene_name, dups$ensembl_gene_id, sep = ".") # append gene id to them to make them unique
@@ -152,9 +146,7 @@ lnc <- biotypes[biotypes$gene_biotype != "protein_coding", "external_gene_name"]
 X.lnc <- X[, colnames(X) %in% lnc]
 X <- X[, !colnames(X) %in% lnc] 
 
-##########################################################################################
-##########     PRELIMINARY ANALYSIS: PRINCIPAL COMPONENT ANALYSIS (PCA)      #############
-##########################################################################################
+# PCA
 pca <- pca(X, ncomp = 5, logratio = 'CLR', multilevel = design$id_s, scale =F)
 # PCA
 p <- data.table(`Explained Variance` = pca$explained_variance, `Principal Components` = 1:length(pca$explained_variance))
