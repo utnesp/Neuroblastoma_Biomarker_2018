@@ -11,7 +11,7 @@ The data was plotted using ggplot2 with the following command:
 ggplot(data, aes(qPCR, SEQ)) + geom_point() + facet_wrap(~external_gene_name, scales = "free", labeller=labeller(external_gene_name = unlist(gene_names))) + theme_bw()
 ```
 
-PCA and PLS-DA result were generated using PCA_PLSDA.R 
+PCA and PLS-DA results were generated using PCA_PLSDA.R 
 
 NBCellLinesRawCounts.txt represent raw counts in neuroblastoma cell lines used in this study.
 
