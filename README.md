@@ -1,4 +1,4 @@
-# Neuroblastoma_Biomarker_2018
+# Neuroblastoma Biomarker 2018
 Scripts used in "Clinically relevant biomarker discovery in high-risk recurrent neuroblastoma"
 
 ## Generation of counts
@@ -17,15 +17,15 @@ SEQC.ClincicalAttributes <- cbind(series_matrix, series_matrix2[, c("age_at_diag
 
 ## RNA-seq validation
 Scatterplot regarding RNA-seq validaton was generated based on qPCR data from the two files:
-- RTqPCR_validation.signal.txt
-- RTqPCR_validation.signal.sdev.txt
-The data was plotted using ggplot2 with the following command:
+- [RTqPCR_validation.signal.txt](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/RTqPCR_validation.signal.txt)
+- [RTqPCR_validation.signal.sdev.txt](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/RTqPCR_validation.signal.sdev.txt)
+The data was plotted using [ggplot2](https://github.com/tidyverse/ggplot2) with the following command:
 ```r
 ggplot(data, aes(qPCR, SEQ)) + geom_point() + facet_wrap(~external_gene_name, scales = "free", labeller=labeller(external_gene_name = unlist(gene_names))) + theme_bw()
 ```
 
 ## PCA PLS-DA
-PCA and PLS-DA results were generated using PCA_PLSDA.R 
+PCA and PLS-DA results were generated using PCA_PLSDA.R following [tutorials using the mixOmics package](http://mixomics.org/case-studies/).
 
 
 ## Characterization of individual RNA classes
