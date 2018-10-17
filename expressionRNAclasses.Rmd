@@ -8,7 +8,7 @@ knit: (function(input_file, encoding) {
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, echo = F}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(plotly)
@@ -16,13 +16,12 @@ library(shiny)
 library(data.table)
 ```
 
-
-```{r expressionRNAclasses}
+```{r expressionRNAclasses, echo = F}
 data <- fread("https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/docs/CPM.cumulative.freq.txt")
 
 shapes = c(15, 16, 17, 0, 18, 3, 5, 2, 8, 24, 1, 25, 4, 7, 8, 9, 10, 26:30)
 s <- data.frame(gene_biotype = data$gene_biotype[!duplicated(data$gene_biotype)], shape = shapes[1:length(unique(data$col))] , color = unique(data$col))
-p1 <- ggplot(data, aes(CPM, CumulativeFrequency)) + geom_point(aes(shape = gene_biotype, color = gene_biotype, 
+p1 <- suppressWarnings(ggplot(data, aes(CPM, CumulativeFrequency)) + geom_point(aes(shape = gene_biotype, color = gene_biotype, 
  text = paste("GENE: ", paste(external_gene_name, "(", ensembl_gene_id, ")", sep = ""), "\nGENE LENGTH (bp):", GeneLength)), size = 1) + theme_classic() + labs(x = "Average expression across cell lines (log2 CPM)", y = "Cumulative Relative Frequency", color='Biotype') + theme(legend.position = "right") + 
        scale_colour_manual(name = "Biotype",
                             labels = s$gene_biotype,
@@ -30,7 +29,12 @@ p1 <- ggplot(data, aes(CPM, CumulativeFrequency)) + geom_point(aes(shape = gene_
         scale_shape_manual(name = "Biotype",
                            labels = s$gene_biotype,
                            values = s$shape) +
-        theme(text = element_text(size = 10), axis.text = element_text(size = 10))
-ggplotly(p1 + theme(text = element_text(size = 10), axis.text = element_text(size = 10), legend.text = element_text(size = 10)), width = 1000, height = 1000)
+        theme(text = element_text(size = 10), axis.text = element_text(size = 10)))
+suppressMessages(ggplotly(p1 + theme(text = element_text(size = 10), axis.text = element_text(size = 10), legend.text = element_text(size = 10)), width = 1000, height = 1000))
 
 ```
+Supplementary figure to "Clinically relevant biomarker discovery in high-risk recurrent neuroblastoma". 
+
+Each point in the plot corresponds to an individual gene. X- and Y-axis represent the average CPM across all cell lines (log2 transformed) and the cumulative relative frequency, respectively. Numbers in parenthesis correspond to number of genes within each RNA class. A mouse over will show gene biotype, gene name, ENSEMBL gene id, gene length in base pairs, mean CPM across samples and the cumulative relative frequency. Related to Figure 2.
+CPM Counts Per Million, lincRNA long intergenic RNAs
+
