@@ -20,10 +20,11 @@ Scatterplot regarding RNA-seq validaton was generated based on normalized qPCR d
 - [RTqPCR_validation.signal.txt](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/RTqPCR_validation.signal.txt)
 - [RTqPCR_validation.signal.sdev.txt](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/RTqPCR_validation.signal.sdev.txt)
 
-The data was plotted using [ggplot2](https://github.com/tidyverse/ggplot2) with the following command:
+The two files were melted to long format (see [Introduction to reshape2](https://seananderson.ca/2013/10/19/reshape/)) and the resulting data with the two new columns qPCR and SEQ was plotted using [ggplot2](https://github.com/tidyverse/ggplot2) with the following command:
 ```r
 ggplot(data, aes(qPCR, SEQ)) + geom_point() + facet_wrap(~external_gene_name, scales = "free", labeller=labeller(external_gene_name = unlist(gene_names))) + theme_bw()
 ```
+Correlation tests were carried out using the R base cor.test() function.
 
 ## PCA PLS-DA
 PCA and PLS-DA results were generated using [PCA_PLSDA.R](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/PCA_PLSDA.R) following [tutorials using the mixOmics package](http://mixomics.org/case-studies/).
