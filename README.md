@@ -25,7 +25,7 @@ ggplot(data, aes(qPCR, SEQ)) + geom_point() + facet_wrap(~external_gene_name, sc
 ```
 
 ## PCA PLS-DA
-PCA and PLS-DA results were generated using PCA_PLSDA.R following [tutorials using the mixOmics package](http://mixomics.org/case-studies/).
+PCA and PLS-DA results were generated using [PCA_PLSDA.R]((https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/PCA_PLSDA.R) following [tutorials using the mixOmics package](http://mixomics.org/case-studies/).
 
 
 ## Characterization of individual RNA classes
