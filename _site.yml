@@ -1,5 +1,5 @@
 name: "expressionRNAclasses"
-output_dir: "docs"
+output_dir: "."
 navbar:
   title: "Characterization of RNA classes"
   left:
