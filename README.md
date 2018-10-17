@@ -19,8 +19,8 @@ NBCellLinesRawCounts.txt represent raw counts in neuroblastoma cell lines used i
 An interactive plot characterizing individual RNA classes is rendered as a html through [GitHub pages](https://utnesp.github.io/Neuroblastoma_Biomarker_2018/)
 
 Tutorials on how to create websites with R were used as guidelines, including:
-[R Markdown](https://rmarkdown.rstudio.com/rmarkdown_websites.html)
-[GitHub pages](https://pages.github.com)
+- [R Markdown](https://rmarkdown.rstudio.com/rmarkdown_websites.html)
+- [GitHub pages](https://pages.github.com)
 
 The following files were used to deploy the rendered html: 
 - expressionRNAclasses.Rmd (used to generated index.html)
