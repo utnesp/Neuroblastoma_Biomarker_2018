@@ -25,11 +25,11 @@ ggplot(data, aes(qPCR, SEQ)) + geom_point() + facet_wrap(~external_gene_name, sc
 ```
 
 ## PCA PLS-DA
-PCA and PLS-DA results were generated using [PCA_PLSDA.R]((https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/PCA_PLSDA.R) following [tutorials using the mixOmics package](http://mixomics.org/case-studies/).
+PCA and PLS-DA results were generated using [PCA_PLSDA.R](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/PCA_PLSDA.R) following [tutorials using the mixOmics package](http://mixomics.org/case-studies/).
 
 
 ## Characterization of individual RNA classes
-An interactive plot characterizing individual RNA classes is rendered as a html through [GitHub pages](https://utnesp.github.io/Neuroblastoma_Biomarker_2018/)
+An interactive plot characterizing individual RNA classes is rendered as a html through [GitHub pages](https://utnesp.github.io/Neuroblastoma_Biomarker_2018/).
 
 Tutorials on how to create websites with R were used as guidelines, including:
 - [R Markdown](https://rmarkdown.rstudio.com/rmarkdown_websites.html)
