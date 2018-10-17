@@ -40,8 +40,8 @@ The following files were used to deploy the rendered html:
 - [docs/CPM.cumulative.freq.txt](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/docs/CPM.cumulative.freq.txt) (used to generate interactive plot within expressionRNAclasses.Rmd)
 - [index.html](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/index.html) (knitted within RStudio from expressionRNAclasses.Rmd)
 - [index.Rmd](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/index.Rmd) (defines shared output options for all R Markdown documents within a site)
-- [config.yml](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/config.yml) (configuration file)
-- [site.yml](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/site.yml) (defines common navigation bar)
+- [_config.yml](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/_config.yml) (configuration file)
+- [_site.yml](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/_site.yml) (defines common navigation bar)
 
 
 
