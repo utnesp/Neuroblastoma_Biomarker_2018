@@ -1,0 +1,12 @@
+name: "rna"
+output_dir: "."
+navbar:
+  title: "RNA"
+  left:
+  - text: "Home"
+   href: index.html
+  - text: "RNA"
+   href:  expressionRNAclasses.html
+output:
+  html_document:
+ theme: cosmo
