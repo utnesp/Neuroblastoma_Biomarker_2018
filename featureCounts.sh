@@ -4,7 +4,7 @@
 #PBS -lnodes=1:ppn=4,pmem=8gb
 #PBS -lwalltime=48:00:00
 
-genfilework=Homo_sapiens.GRCh38.dna.primary_assembly.reordered.fa
+genfilework=Homo_sapiens.GRCh38.dna.primary_assembly.fa
 gtffile=Homo_sapiens.GRCh38.gtf
 bam_file_to_count=bam_files_to_count.txt # contains complete paths to bam files in one line, ex:
 # bamfile1.bam bamfile2.bam bamfile3.bam
