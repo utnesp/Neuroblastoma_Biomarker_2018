@@ -16,7 +16,7 @@ SEQC.ClincicalAttributes <- cbind(series_matrix, series_matrix2[, c("age_at_diag
 ```
 
 ## RNA-seq validation
-Scatterplot regarding RNA-seq validaton was generated based on qPCR data from the two files:
+Scatterplot regarding RNA-seq validaton was generated based on normalized qPCR data from the two files:
 - [RTqPCR_validation.signal.txt](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/RTqPCR_validation.signal.txt)
 - [RTqPCR_validation.signal.sdev.txt](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/RTqPCR_validation.signal.sdev.txt)
 
