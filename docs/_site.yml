@@ -1,7 +1,0 @@
-name: "expressionRNAclasses"
-output_dir: "docs"
-navbar:
-  title: "Characterization of RNA classes"
-  left:
-    - text: "Home"
-      href: index.html
