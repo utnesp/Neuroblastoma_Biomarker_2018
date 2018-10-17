@@ -24,6 +24,7 @@ Tutorials on how to create websites with R were used as guidelines, including:
 
 The following files were used to deploy the rendered html: 
 expressionRNAclasses.Rmd (used to generated index.html)
+[docs/CPM.cumulative.freq.txt](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/docs/CPM.cumulative.freq.txt) (used to generated interactive plot within expressionRNAclasses.Rmd)
 index.html (knitted within RStudio from expressionRNAclasses.Rmd)
 index.Rmd (defines shared output options for all R Markdown documents within a site)
 _config.yml (configuration file)
