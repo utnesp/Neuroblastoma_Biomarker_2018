@@ -1,6 +1,10 @@
 # Neuroblastoma_Biomarker_2018
 Scripts used in "Clinically relevant biomarker discovery in high-risk recurrent neuroblastoma"
 
+## Generation of counts
+Fastq files sequenced on the Illumina HiSeq 2000 system were deposited to the Sequence Read Archive with accession [PRJNA491629](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA491629). Fastq files were further mapped to the human genome build GRCh38 using STAR aligner and [STAR.sh](https://github.com/utnesp/Neuroblastoma_Biomarker_2018/blob/master/STAR.sh). featureCounts and the script [featureCounts.sh](https://github.com/utnesp/Neuroblastoma_Biomarker_2018/blob/master/featureCounts.sh) was used to generate [NBCellLinesRawCounts.txt](https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/NBCellLinesRawCounts.txt) which represent raw counts in neuroblastoma cell lines used in this study. 
+
+## Generation of SEQC sample characteristics
 SEQC.SampleCharacteristics.txt was generated from the series matrix files associated with Gene Expression Omnibuss accession [GSE62564](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE62564) and [GSE49711](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE49711) using the R script [getSeriesMatrixCharacteristics.R](https://github.com/utnesp/NORAD/blob/master/getSeriesMatrixCharacteristics.R) and the R snippet:
 
 ```r
@@ -11,6 +15,7 @@ series_matrix2 <- getSeriesMatrixCharacteristics(ftpURLof_series_matrix.txt.gz)
 SEQC.ClincicalAttributes <- cbind(series_matrix, series_matrix2[, c("age_at_diagnosis", "mycn_status", "inss_stage", "class_label")]) # see descriptions at https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE49711
 ```
 
+## RNA-seq validation
 Scatterplot regarding RNA-seq validaton was generated based on qPCR data from the two files:
 - RTqPCR_validation.signal.txt
 - RTqPCR_validation.signal.sdev.txt
@@ -19,9 +24,9 @@ The data was plotted using ggplot2 with the following command:
 ggplot(data, aes(qPCR, SEQ)) + geom_point() + facet_wrap(~external_gene_name, scales = "free", labeller=labeller(external_gene_name = unlist(gene_names))) + theme_bw()
 ```
 
+## PCA PLS-DA
 PCA and PLS-DA results were generated using PCA_PLSDA.R 
 
-NBCellLinesRawCounts.txt represent raw counts in neuroblastoma cell lines used in this study.
 
 ## Characterization of individual RNA classes
 An interactive plot characterizing individual RNA classes is rendered as a html through [GitHub pages](https://utnesp.github.io/Neuroblastoma_Biomarker_2018/)
