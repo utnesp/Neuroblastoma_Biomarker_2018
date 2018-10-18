@@ -15,7 +15,7 @@ series_matrix2 <- getSeriesMatrixCharacteristics(ftpURLof_series_matrix.txt.gz)
 SEQC.ClincicalAttributes <- cbind(series_matrix, series_matrix2[, c("age_at_diagnosis", "mycn_status", "inss_stage", "class_label")]) # see descriptions at https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE49711
 ```
 
-The sample characteristics may be easily read within R using the data.table command fread:
+The resulting file may be utilized within R using the data.table command fread:
 ```r
 SEQC.ClincicalAttributes <- fread("https://raw.githubusercontent.com/utnesp/Neuroblastoma_Biomarker_2018/master/SEQC.SampleCharacteristics.txt")
 ```
